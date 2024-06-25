@@ -1,6 +1,6 @@
 # DACD_Final_Project
-Práctica final de la asignatura DACD
 
+![DALL·E 2024-06-25 22 18 06 - Create an image representing two APIs_ OpenWeatherMap and Xotelo  The image should be split into two sections  On the left side, illustrate OpenWeathe (1)](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/e0ad0663-8a03-433e-8576-7f644c651cb3)
 
 ## Academic Information
 - **Tittle**: Intelligent Travel Based on Weather.
