@@ -13,7 +13,6 @@
         <module>hotelProvider</module>
         <module>datalakeBuilder</module>
         <module>businessUnit</module>
-        <module>commonUtilities</module>
     </modules>
 
     <properties>
