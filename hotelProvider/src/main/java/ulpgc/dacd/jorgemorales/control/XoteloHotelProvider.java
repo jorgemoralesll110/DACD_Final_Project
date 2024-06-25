@@ -7,18 +7,17 @@ import ulpgc.dacd.jorgemorales.model.Booking;
 import ulpgc.dacd.jorgemorales.model.Hotel;
 
 import java.io.BufferedReader;
-
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.util.List;
+import java.util.ArrayList;
 import java.net.URL;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class XoteloHotelProvider implements HotelProvider{
-
-    private static final String API_URL = "https://xotelo.com/api/rates";
+    private static final String API_URL = "https://data.xotelo.com/api/rates";
     private final HotelInfoReader hotelInfoReader;
 
     public XoteloHotelProvider(HotelInfoReader hotelInfoReader) {
@@ -28,7 +27,7 @@ public class XoteloHotelProvider implements HotelProvider{
     @Override
     public List<Hotel> searchHotel(String island, Booking booking) {
         try {
-            List<String> hotelKeys = hotelInfoReader.getHotelKeyForIsland(island);
+            List<String> hotelKeys = hotelInfoReader.getHotelKeysForIsland(island);
             List<Hotel> allHotels = new ArrayList<>();
             for (String hotelKey : hotelKeys) {
                 String APIResponse = getAPIResponse(hotelKey, booking);
@@ -40,16 +39,17 @@ public class XoteloHotelProvider implements HotelProvider{
             e.printStackTrace();
             return new ArrayList<>();
         }
-
     }
 
-    private String getAPIResponse(String hotelKey, Booking booking) throws Exception {
-        URL url = new URL(API_URL + "?hotelKey=" + hotelKey + "&checkInDate=" + booking.getCheckInDate() + "&checkOutDate=" + booking.getCheckOutDate());
+
+    private String getAPIResponse(String hotelKey, Booking booking) throws IOException {
+        String URLString = String.format("%s?hotelKey=%s&checkInDate=%s&checkOutDate=%s", API_URL, hotelKey, booking.getCheckInDate(), booking.getCheckOutDate());
+        URL url = new URL(URLString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Accept", "application/json");
-        int responseCode = connection.getResponseCode();
-        if (responseCode != 200) {
+
+        if (connection.getResponseCode() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
         }
 
@@ -69,13 +69,12 @@ public class XoteloHotelProvider implements HotelProvider{
         JsonObject jsonObject = JsonParser.parseString(apiResponse).getAsJsonObject();
 
         if (jsonObject.has("result")) {
-            JsonObject result = jsonObject.getAsJsonObject("result");
-            JsonArray rates = result.getAsJsonArray("rates");
-            for (int i = 0; i < rates.size(); i++) {
-                JsonObject hotelObject = rates.get(i).getAsJsonObject();
+            JsonArray result = jsonObject.getAsJsonObject("result").getAsJsonArray("rates");
+            for (int i = 0; i < result.size(); i++) {
+                JsonObject hotelObject = result.get(i).getAsJsonObject();
                 Hotel hotel = new Hotel();
                 hotel.setName(hotelObject.get("name").getAsString());
-                hotel.setPrice(hotelObject.get("rate").getAsDouble());
+                hotel.setPrice(hotelObject.get("rating").getAsDouble());
                 hotels.add(hotel);
             }
         }

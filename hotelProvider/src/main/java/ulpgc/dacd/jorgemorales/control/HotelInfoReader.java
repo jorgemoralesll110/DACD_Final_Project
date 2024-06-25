@@ -1,32 +1,31 @@
 package ulpgc.dacd.jorgemorales.control;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
 import java.util.*;
 
+
 public class HotelInfoReader {
+
     private final Map<String, List<String>> islandHotelMap = new HashMap<>();
 
-    public HotelInfoReader(String filePath) throws Exception {
-        loadHotelInfo(filePath);
+    public HotelInfoReader() throws Exception {
+        loadHotelInfo();
     }
 
-    private void loadHotelInfo(String filePath) throws Exception {
+    private void loadHotelInfo() throws Exception {
         ClassLoader classLoader = getClass().getClassLoader();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(classLoader.getResourceAsStream("hotelAPIKey.csv"))))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(classLoader.getResourceAsStream("hotel_info.csv"))))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 String island = parts[0];
-                String hotel = parts[1];
-                islandHotelMap.computeIfAbsent(island, k -> new ArrayList<>()).add(hotel);
+                String hotelKey = parts[1];
+                islandHotelMap.computeIfAbsent(island, k -> new ArrayList<>()).add(hotelKey);
             }
         }
     }
 
-    public List<String> getHotelKeyForIsland(String island) {
+    public List<String> getHotelKeysForIsland(String island) {
         return islandHotelMap.getOrDefault(island, new ArrayList<>());
     }
-
 }

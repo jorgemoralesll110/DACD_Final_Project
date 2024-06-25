@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface HotelProvider {
     List<Hotel> searchHotel(String island, Booking booking);
-
 }
