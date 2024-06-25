@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales;
+package ulpgc.dacd.jorgemorales.control;
 
 import ulpgc.dacd.jorgemorales.model.Location;
 import ulpgc.dacd.jorgemorales.model.Weather;

@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales;
+package ulpgc.dacd.jorgemorales.control;
 
 import com.google.gson.*;
 import ulpgc.dacd.jorgemorales.model.Location;

@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales;
+package ulpgc.dacd.jorgemorales.control;
 
 import ulpgc.dacd.jorgemorales.model.Booking;
 import ulpgc.dacd.jorgemorales.model.Hotel;

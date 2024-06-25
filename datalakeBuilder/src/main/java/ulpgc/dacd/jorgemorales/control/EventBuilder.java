@@ -2,7 +2,6 @@ package ulpgc.dacd.jorgemorales.control;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ulpgc.dacd.jorgemorales.InstantAdapter;
 import ulpgc.dacd.jorgemorales.model.Location;
 import ulpgc.dacd.jorgemorales.model.Weather;
 
