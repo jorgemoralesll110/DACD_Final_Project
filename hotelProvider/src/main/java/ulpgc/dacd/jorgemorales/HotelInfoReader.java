@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales.control;
+package ulpgc.dacd.jorgemorales;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;

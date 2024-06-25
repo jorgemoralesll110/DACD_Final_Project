@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales.control;
+package ulpgc.dacd.jorgemorales;
 
 public class Main {
     public static void main(String[] args) {

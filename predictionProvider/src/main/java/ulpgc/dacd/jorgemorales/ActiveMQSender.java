@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales.control;
+package ulpgc.dacd.jorgemorales;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales.control;
+package ulpgc.dacd.jorgemorales;
 
 import jakarta.jms.*;
 import org.apache.activemq.ActiveMQConnectionFactory;

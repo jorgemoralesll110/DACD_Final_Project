@@ -1,4 +1,4 @@
-package ulpgc.dacd.jorgemorales.control;
+package ulpgc.dacd.jorgemorales;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
