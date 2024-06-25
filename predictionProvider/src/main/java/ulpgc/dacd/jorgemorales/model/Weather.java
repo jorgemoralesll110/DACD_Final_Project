@@ -27,41 +27,6 @@ public class Weather {
         this.timestamp = timestamp;
     }
 
-    public Weather(double temperature, double humidity, double precipitation, double windSpeed, double clouds, Location locationApi, String dataTimeString) {
-    }
-
-    public Instant getTs() {
-        return ts;
-    }
-
-    public void setTs(Instant ts) {
-        this.ts = ts;
-    }
-
-    public String getSs() {
-        return ss;
-    }
-
-    public void setSs(String ss) {
-        this.ss = ss;
-    }
-
-    public Instant getPredictionTime() {
-        return predictionTime;
-    }
-
-    public void setPredictionTime(Instant predictionTime) {
-        this.predictionTime = predictionTime;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     public double getTemperature() {
         return temperature;
     }
@@ -74,39 +39,15 @@ public class Weather {
         return humidity;
     }
 
-    public void setHumidity(double humidity) {
-        this.humidity = humidity;
-    }
+
 
     public double getRain() {
         return rain;
-    }
-
-    public void setRain(double rain) {
-        this.rain = rain;
     }
 
     public double getWind() {
         return wind;
     }
 
-    public void setWind(double wind) {
-        this.wind = wind;
-    }
 
-    public double getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(double clouds) {
-        this.clouds = clouds;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
 }

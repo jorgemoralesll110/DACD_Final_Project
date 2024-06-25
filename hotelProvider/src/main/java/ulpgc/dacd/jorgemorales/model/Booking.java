@@ -7,8 +7,8 @@ public class Booking {
     private String checkOutDate;
 
     public Booking(Instant checkInDate, Instant checkOutDate) {
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        this.checkInDate = String.valueOf(checkInDate);
+        this.checkOutDate = String.valueOf(checkOutDate);
     }
 
 
@@ -16,16 +16,11 @@ public class Booking {
         return checkInDate;
     }
 
-    public void setCheckInDate(String checkInDate) {
-        this.checkInDate = checkInDate;
-    }
+
 
     public String getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(String checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
 }
 

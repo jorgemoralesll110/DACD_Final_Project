@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BusinessUnitView {
-    private DataMart dataMart;
+    private final DataMart dataMart;
     private Connection connection;
 
     public BusinessUnitView(DataMart dataMart, Connection connection) {

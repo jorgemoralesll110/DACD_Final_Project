@@ -5,7 +5,6 @@ import ulpgc.dacd.jorgemorales.model.Booking;
 import ulpgc.dacd.jorgemorales.model.Weather;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 

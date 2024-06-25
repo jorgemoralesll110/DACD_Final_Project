@@ -7,39 +7,35 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:Hotel_Weather.db:" + Paths.get("src/main/resources/database/hotel_weather_db").toAbsolutePath().toString();
+    private static final String URL = "jdbc:sqlite:" + Paths.get("src/main/resources/database/business_unit_db.db").toAbsolutePath();
     private Connection connection;
 
     public DatabaseConnection() throws SQLException {
         this.connection = DriverManager.getConnection(URL);
+        createTables();
     }
 
     public Connection getConnection() {
         return connection;
     }
 
-    public void close() throws SQLException {
-        connection.close();
-    }
-
     private void createTables() throws SQLException {
         try (Statement statement = connection.createStatement()) {
             String createWeatherTable = "CREATE TABLE IF NOT EXISTS weather (" +
-                    "id IDENTITY PRIMARY KEY, " +
-                    "timestamp TIMESTAMP NOT NULL, " +
-                    "source VARCHAR(255) NOT NULL, " +
-                    "temperature DOUBLE NOT NULL, " +
-                    "wind_speed DOUBLE NOT NULL, " +
-                    "rain_probability DOUBLE NOT NULL, " +
-                    "humidity DOUBLE NOT NULL)";
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "timestamp TEXT NOT NULL, " +
+                    "source TEXT NOT NULL, " +
+                    "temperature REAL NOT NULL, " +
+                    "wind_speed REAL NOT NULL, " +
+                    "rain_probability REAL NOT NULL, " +
+                    "humidity REAL NOT NULL)";
             statement.execute(createWeatherTable);
 
-        
             String createBookingsTable = "CREATE TABLE IF NOT EXISTS bookings (" +
-                "id IDENTITY PRIMARY KEY, " +
-                "hotel_key VARCHAR(255) NOT NULL, " +
-                "check_in_date DATE NOT NULL, " +
-                "check_out_date DATE NOT NULL)";
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "hotel_key TEXT NOT NULL, " +
+                    "check_in_date TEXT NOT NULL, " +
+                    "check_out_date TEXT NOT NULL)";
             statement.execute(createBookingsTable);
         }
     }

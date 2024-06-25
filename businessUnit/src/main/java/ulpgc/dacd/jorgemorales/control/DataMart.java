@@ -19,9 +19,9 @@ public class DataMart {
     public void addWeatherData(Weather weather) throws SQLException {
         String insertSQL = "INSERT INTO weather (timestamp, source, temperature, wind_speed, rain_probability, humidity) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(insertSQL)) {
-            statement.setString(1, weather.getTimestamp().toString());
+            statement.setString(1, weather.getTimestamp());
             statement.setString(2, weather.getSs());
-            statement.setDouble(3, round(weather.getTemperature() - 273.15)); // Convertir a Celsius
+            statement.setDouble(3, round(weather.getTemperature() - 273.15));
             statement.setDouble(4, weather.getWind());
             statement.setDouble(5, weather.getRain());
             statement.setDouble(6, weather.getHumidity());
@@ -33,8 +33,8 @@ public class DataMart {
     public void addBookingData(Booking booking) throws SQLException {
         String insertSQL = "INSERT INTO bookings (hotel_key, check_in_date, check_out_date) VALUES (?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(insertSQL)) {
-            statement.setString(1, booking.getCheckInDate().toString());
-            statement.setString(2, booking.getCheckOutDate().toString());
+            statement.setString(1, booking.getCheckInDate());
+            statement.setString(2, booking.getCheckOutDate());
 
             statement.executeUpdate();
         }

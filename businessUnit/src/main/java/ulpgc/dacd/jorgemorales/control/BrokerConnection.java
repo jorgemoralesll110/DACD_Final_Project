@@ -18,9 +18,4 @@ public class BrokerConnection {
     public Session getSession() {
         return session;
     }
-
-    public void close() throws JMSException {
-        session.close();
-        connection.close();
-    }
 }
