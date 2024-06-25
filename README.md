@@ -49,7 +49,8 @@ The project is divided into several modules and packages for better organization
 ### PredictionProvider
 ![image](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/e392cbf5-55e9-490d-bf96-2c1fa67fb192)
 
-
+## Autor
+Jorge Morales Llerandi
 
 
 
