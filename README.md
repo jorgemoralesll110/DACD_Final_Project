@@ -27,14 +27,31 @@ The project is divided into several modules and packages for better organization
 - **Programming Languages**: Java 17.
 
 - **Documentation Tools**:
-  · ChatGPT.
-  · SQLite documentation.
-  · Json documentation.
-  · Maven (for the repositories).
-  · OpenWeatherMap (to obtain the information).
-  · API Talend (to make API queries).
+  - ChatGPT.
+  - SQLite documentation.
+  - Json documentation.
+  - Maven (for the repositories).
+  - OpenWeatherMap (to obtain the information).
+  - API Talend (to make API queries).
   - ActiveMQ
 
+
 ## Diagram Class.
+### Business Unit
+![image](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/48c534ab-6c1f-41fa-8061-ce111f3f7bf6)
+
+### DatalakeBuilder
+![image](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/c1832994-22e0-4e2c-af97-948984e81a75)
+
+### HotelProvider
+![image](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/65f83c05-acd8-4fd5-b488-3d457fc00a35)
+
+### PredictionProvider
+![image](https://github.com/jorgemoralesll110/DACD_Final_Project/assets/132004580/e392cbf5-55e9-490d-bf96-2c1fa67fb192)
+
+
+
+
+
 
 
